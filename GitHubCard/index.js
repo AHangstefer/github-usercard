@@ -1,19 +1,19 @@
-import Axios from "axios";
+//import Axios from "axios";
 
 /*
   STEP 1: using axios, send a GET request to the following URL
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
-Axios
+// Axios
 
-.get('https://api.github.com/users/AHangstefer')
-.then((res)=>{
-  console.log('Here is the res:', res);
-})
-.catch((err)=>{
-  console.log('There was an error:', res);
-});
+// .get('https://api.github.com/users/AHangstefer')
+// .then((res)=>{
+//   console.log('Here is the res:', res);
+// })
+// .catch((err)=>{
+//   console.log('There was an error:', res);
+// });
 
 
 
@@ -79,7 +79,7 @@ function gitInfo (items){
 
  
  cardParent.appendChild(img);
- cardParent.appendChild(cardinfo);
+ cardParent.appendChild(cardInfo);
  cardInfo.appendChild(h3);
  cardInfo.appendChild(pUname);
  cardInfo.appendChild(pLocation);
@@ -88,7 +88,20 @@ function gitInfo (items){
  cardInfo.appendChild(pFollowers);
  cardInfo.appendChild(pFollowing);
  cardInfo.appendChild(pBio);
-}
+
+ cardParent.classList.add('card');
+ cardInfo.classList.add('card-info');
+ h3.classList.add('name');
+ pUname.classList.add('username');
+
+ console.log(cardParent);
+ return cardParent;
+};
+
+const cards = document.querySelector('.cards');
+cards.appendChild(gitInfo());
+console.log(cards);
+
 
 /*
   List of LS Instructors Github username's:
