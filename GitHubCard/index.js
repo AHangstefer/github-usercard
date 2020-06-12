@@ -1,19 +1,26 @@
-//import Axios from "axios";
+//import axios from "axios";
 
 /*
   STEP 1: using axios, send a GET request to the following URL
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
-// Axios
 
-// .get('https://api.github.com/users/AHangstefer')
-// .then((res)=>{
-//   console.log('Here is the res:', res);
-// })
-// .catch((err)=>{
-//   console.log('There was an error:', res);
-// });
+
+ axios.get('https://api.github.com/users/AHangstefer')
+.then((res)=>{
+  console.log('Here is the res:', res);
+  const cards = document.querySelector('.cards');
+  cards.appendChild(gitInfo(res.data));
+})
+.catch((err)=>{
+  console.log('There was an error:', res);
+});
+
+//res and the response is always an object and ,'data' is 
+// property names
+
+
 
 
 
@@ -94,13 +101,17 @@ function gitInfo (items){
  h3.classList.add('name');
  pUname.classList.add('username');
 
+ h3.textContent = (items['login']);
+
+
  console.log(cardParent);
  return cardParent;
 };
 
 const cards = document.querySelector('.cards');
-cards.appendChild(gitInfo());
+cards.appendChild(gitInfo(res.data));
 console.log(cards);
+console.log(axios);
 
 
 /*
