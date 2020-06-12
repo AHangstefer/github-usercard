@@ -78,6 +78,7 @@ function gitInfo (items){
  const h3 =document.createElement('h3');
  const pUname = document.createElement('p');
  const pLocation = document.createElement('p');
+ const pProfile = document.createElement('p');
  const aProfile = document.createElement('a');
  const pFollowers = document.createElement('p');
  const pFollowing = document.createElement('p');
@@ -89,6 +90,7 @@ function gitInfo (items){
  cardInfo.appendChild(h3);
  cardInfo.appendChild(pUname);
  cardInfo.appendChild(pLocation);
+ cardInfo.appendChild(pProfile);
  cardInfo.appendChild(aProfile);
  cardInfo.appendChild(pFollowers);
  cardInfo.appendChild(pFollowing);
@@ -100,11 +102,15 @@ function gitInfo (items){
  pUname.classList.add('username');
 
  h3.textContent = (items['name']);
- //img.src = (items['img']);
+ img.src = (items['avatar_url']);
  pUname.textContent = (items['login']);
  pLocation.textContent=('Location: ')+(items['location']);
- aProfile.textContent = ('Profile:');
- //aProfile.setAttribute= (items['html_url']);
+ //pProfile.textContent = ('Profile  ');
+ aProfile.href=  (items['html_url']);
+ aProfile.textContent = ('Profile:  ')+(items['html_url']);
+ pFollowers.textContent = ('Followers:  ')+(items['followers']);
+ pFollowing.textContent = ('Following:  ')+(items['following']);
+ pBio.textContent = ('Bio:  ')+(items['bio']);
 
 
  console.log(cardParent);
