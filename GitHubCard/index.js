@@ -78,8 +78,7 @@ function gitInfo (items){
  const h3 =document.createElement('h3');
  const pUname = document.createElement('p');
  const pLocation = document.createElement('p');
- const pProfile = document.createElement('p');
- const a = document.createElement('a');
+ const aProfile = document.createElement('a');
  const pFollowers = document.createElement('p');
  const pFollowing = document.createElement('p');
  const pBio = document.createElement('p');
@@ -90,8 +89,7 @@ function gitInfo (items){
  cardInfo.appendChild(h3);
  cardInfo.appendChild(pUname);
  cardInfo.appendChild(pLocation);
- cardInfo.appendChild(pProfile);
- pProfile.appendChild(a);
+ cardInfo.appendChild(aProfile);
  cardInfo.appendChild(pFollowers);
  cardInfo.appendChild(pFollowing);
  cardInfo.appendChild(pBio);
@@ -101,17 +99,20 @@ function gitInfo (items){
  h3.classList.add('name');
  pUname.classList.add('username');
 
- h3.textContent = (items['login']);
+ h3.textContent = (items['name']);
+ //img.src = (items['img']);
+ pUname.textContent = (items['login']);
+ pLocation.textContent=('Location: ')+(items['location']);
+ aProfile.textContent = ('Profile:');
+ //aProfile.setAttribute= (items['html_url']);
 
 
  console.log(cardParent);
  return cardParent;
 };
 
-const cards = document.querySelector('.cards');
-cards.appendChild(gitInfo(res.data));
-console.log(cards);
-console.log(axios);
+// const cards = document.querySelector('.cards');
+// cards.appendChild(gitInfo(res.data));
 
 
 /*
