@@ -48,7 +48,22 @@
     user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = ['tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell'];
+
+followersArray.forEach((name)=>{
+    axios.get('https://api.github.com/users/${name})
+
+   .then((res)=>{
+    console.log('Here is the res:', res);
+    const cards = document.querySelector('.cards');
+    cards.appendChild(gitInfo(res.data));
+    })
+  .catch((err)=>{
+  console.log('There was an error:', res);
+    })
+
+
+};
 
 
 /*
@@ -105,14 +120,15 @@ function gitInfo (items){
  img.src = (items['avatar_url']);
  pUname.textContent = (items['login']);
  pLocation.textContent=('Location: ')+(items['location']);
- //pProfile.textContent = ('Profile  ');
  aProfile.href=  (items['html_url']);
  aProfile.textContent = ('Profile:  ')+(items['html_url']);
  pFollowers.textContent = ('Followers:  ')+(items['followers']);
  pFollowing.textContent = ('Following:  ')+(items['following']);
  pBio.textContent = ('Bio:  ')+(items['bio']);
 
+ 
 
+   
  console.log(cardParent);
  return cardParent;
 };
