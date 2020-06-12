@@ -51,19 +51,18 @@
 const followersArray = ['tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell'];
 
 followersArray.forEach((name)=>{
-    axios.get('https://api.github.com/users/${name})
+    axios.get(`https://api.github.com/users/${name}`)
 
    .then((res)=>{
-    console.log('Here is the res:', res);
-    const cards = document.querySelector('.cards');
-    cards.appendChild(gitInfo(res.data));
+    console.log('Here is the new res:', res);
+    const newCards = document.querySelector('.cards');
+    newCards.appendChild(gitInfo(res.data));
     })
   .catch((err)=>{
   console.log('There was an error:', res);
-    })
+    });
+  });    
 
-
-};
 
 
 /*
